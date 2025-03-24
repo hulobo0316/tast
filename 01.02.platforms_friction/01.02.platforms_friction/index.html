@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./assets/phaser@3.55.2.min.js"></script>
+    <style type="text/css">
+        body {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        const config = {
+            type: Phaser.AUTO,
+            width: 640,
+            height: 480,
+            scale: {
+                autoCenter: Phaser.Scale.CENTER_BOTH
+            },
+
+            pixelArt: true,
+            physics: {
+                default: "arcade",
+                arcade: {
+                    gravity: { y: 800 },
+                },
+            },
+            scene: {
+                preload: preload,
+                create: create,
+                update: update,
+            },
+        };
+
+        const game = new Phaser.Game(config);
+        let platforms,
+            player,
+            cursors
+
+        function preload() {
+            // 練習先前學過的經驗，將background.png、platform.png、ice-platform.png、dude.png資料匯入
+            this.load.image("background", "assets/background.png");
+            this.load.image("trees", "assets/trees.png");
+            this.load.image("clouds", "assets/clouds.png");
+            this.load.image("platform", "assets/platform.png");
+            this.load.image("ice-platform", "assets/ice-platform.png");
+            this.load.spritesheet("dude", "assets/dude.png", {
+                frameWidth: 32,
+                frameHeight: 48,
+            });
+            this.load.image("red", "assets/red.png");
+            this.load.image("blue", "assets/blue.png");
+        }
+
+        function create() {
+            // 繪製背景天空
+            this.add.sprite(0, 0, "background").setOrigin(0);
+        }
+
+        function update() {
+
+        }
+    </script>
+</body>
+
+</html>
